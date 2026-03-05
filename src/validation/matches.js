@@ -22,8 +22,8 @@ export const createMatchSchema = z.object({
     sport: z.string().min(1, 'Sport is required and must be non-empty'),
     homeTeam: z.string().min(1, 'Home team is required and must be non-empty'),
     awayTeam: z.string().min(1, 'Away team is required and must be non-empty'),
-    startTime: z.iso.datatime(),
-    endTime: z.iso.datatime(),
+    startTime: z.string().datetime(),
+    endTime: z.string().datetime(),
     homeScore: z.coerce.number().nonnegative().int().optional(),
     awayScore: z.coerce.number().nonnegative().int().optional(),
   }).superRefine((data, ctx) => {
