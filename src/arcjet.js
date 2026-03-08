@@ -1,7 +1,8 @@
+import 'dotenv/config';
 import arcjet, { shield, detectBot, slidingWindow } from '@arcjet/node';
 
 const arcjetKey = process.env.ARCJECT_KEY;
-const arcjetMode = process.env.ARCJECT_MODE === 'DRY_RUN' ? 'DRY_RUN' : 'LIVE';
+const arcjetMode = process.env.ARCJECT_MODE === 'DRY_RUN' || process.env.ARCJECT_MODE === 'development' ? 'DRY_RUN' : 'LIVE';
 
 if(!arcjetKey) throw new Error('ARCJECT_KEY environment variable is missing');
 
